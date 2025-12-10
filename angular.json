@@ -19,12 +19,9 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "docs",
-          
             "index": "src/index.html",
-            "browser": "src/main.ts",
-
+           "browser": "src/main.ts",
             "baseHref": "/a2n.ai/",
-
             "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
