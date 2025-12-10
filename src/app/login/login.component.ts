@@ -31,6 +31,7 @@ export class LoginComponent {
 
   async verifyCredentials(username: string, password: string): Promise<boolean> {
     try {
+      // ⭐ FINAL FIX — CORRECT PATH
       const url = 'assets/data/credentials.xlsx';
 
       const response = await fetch(url);
@@ -51,6 +52,7 @@ export class LoginComponent {
         }
       }
       return false;
+
     } catch (error) {
       console.error('Error reading Excel file:', error);
       throw error;
