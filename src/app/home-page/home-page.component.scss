@@ -1,0 +1,93 @@
+
+.headline {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #1D45CD;
+    text-align: center;
+}
+
+.page {
+    height: 92vh;
+    width: 100%;
+    /* background-image: url("/assets/All_logo/bg-image.jpg"); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: 
+    linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+    url("/assets/All_logo/bg-image.jpg") center/cover no-repeat;
+}
+
+.bg1{
+    background-image: url("/assets/All_logo/image-1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.bg1:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.bg2{
+    background-image: url("/assets/All_logo/image-2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.bg2:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.bg3{
+    background-image: url("/assets/All_logo/image-3.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.bg3:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+.bg4{
+    background-image: url("/assets/All_logo/image-4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.bg4:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.btn-light {
+    background: transparent !important;
+    border: 2px solid #fff !important;
+    color: #fff !important;
+    transition: 0.3s ease-in-out;
+    font-weight: 500;
+}
+
+.btn-light:hover {
+    background: #fff !important;
+    color: #1D45CD !important;
+    border-color: #fff !important;
+    font-weight: 500;
+
+}
+
+  
+
+
+
+
+
+
+
+
+
+
+

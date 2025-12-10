@@ -1,0 +1,165 @@
+<div class="page-container">
+
+  <!-- =============================
+        SLIDE-IN CONFIG PANEL
+  ============================== -->
+  <div class="config-slide" [class.open]="showOptions">
+
+    <div class="config-header">
+      <h2>⚙ Configural Panel</h2>
+      <!-- <button class="close-btn" (click)="openConfig()">✖</button> -->
+    </div>
+
+    <!-- MENU BUTTONS -->
+    <div class="config-menu">
+      <button 
+        class="menu-btn"
+        [class.active]="selectedSection === 'prompt'"
+        (click)="openSection('prompt')">
+        📝 Prompt
+      </button>
+
+      <button 
+        class="menu-btn"
+        [class.active]="selectedSection === 'model'"
+        (click)="openSection('model')">
+        🤖 Model
+      </button>
+
+      <button 
+        class="menu-btn"
+        [class.active]="selectedSection === 'dataset'"
+        (click)="openSection('dataset')">
+        📁 Dataset
+      </button>
+    </div>
+
+    <!-- SECTION CONTENT -->
+    <div class="config-content">
+
+      <!-- PROMPT -->
+      <div *ngIf="selectedSection === 'prompt'" class="section-card">
+        <h3>📝 Enter Prompt</h3>
+        <textarea class="big-input" rows="5" placeholder="Write your prompt..."></textarea>
+      </div>
+
+      <!-- MODEL -->
+      <div *ngIf="selectedSection === 'model'" class="section-card">
+        <h3>🤖 Select Model</h3>
+
+        <select class="big-input">
+          <option>GPT-4</option>
+          <option>Groq Mixtral</option>
+          <option>Ollama Llama3</option>
+          <option>Ollama Phi3</option>
+        </select>
+      </div>
+
+      <!-- DATASET -->
+     <div *ngIf="selectedSection === 'dataset'" class="section-card">
+  <h3>📁 Upload Dataset</h3>
+
+  <label class="upload-box">
+      <input type="file" multiple class="hidden-file">
+      <div class="upload-icon">📄</div>
+      <p>
+        <strong>Click to upload</strong><br>
+        or drag files here
+      </p>
+  </label>
+</div>
+
+
+    </div>
+
+    <button class="process-all-btn" (click)="processAll()">🚀 Process All</button>
+  </div>
+
+
+
+
+  <!-- =============================
+          RIGHT SIDE CHAT AREA
+  ============================== -->
+  <div class="chat-container">
+
+    <div class="chat-wrapper" [class.dark]="dark">
+
+      <!-- HEADER -->
+      <header class="header">
+        <div class="title-wrap">
+          <img src="assets/Agentic Ai logo/Tejas Small.png" class="rag-logo">
+          <h2>Tejas</h2>
+        </div>
+
+        <div class="header-buttons">
+          <button class="config-btn" (click)="openConfig()">Configural</button>
+
+          <button class="theme-toggle" (click)="toggleDark()">
+            {{ dark ? 'Light Mode' : 'Dark Mode' }}
+          </button>
+        </div>
+      </header>
+
+      <!-- CHAT WINDOW -->
+      <div id="chat-window" class="chat-window">
+
+        <div *ngFor="let m of messages"
+             class="msg"
+             [ngClass]="{
+               'msg-user': m.from === 'user',
+               'msg-bot': m.from === 'bot',
+               'msg-system': m.from === 'system'
+             }">
+
+          <div class="sender">
+           {{ m.from === 'user' ? 'You' : m.from === 'bot' ? 'Tejas' : 'System' }}
+
+          </div>
+
+          <div class="msg-text" [innerHTML]="m.text"></div>
+
+          <div *ngIf="m.sources?.length" class="sources">
+            <div *ngFor="let s of m.sources" class="source-item">
+              <strong>{{ s.source }}</strong>
+              <div class="source-text">{{ s.snippet }}</div>
+            </div>
+          </div>
+
+          <div class="msg-time">{{ m.time }}</div>
+        </div>
+
+        <div *ngIf="botTyping" class="typing-indicator">
+          <span></span><span></span><span></span>
+        </div>
+
+      </div>
+
+      <!-- INPUT BAR -->
+      <div class="input-bar">
+        <input type="text"
+               [(ngModel)]="question"
+               placeholder="Ask something..."
+               (keydown.enter)="sendQuestion()">
+
+        <label class="upload-btn">
+  <input type="file" (change)="onFileSelected($event)">
+  <img src="assets/paperclip.png" class="upload-icon-small">
+</label>
+
+
+        <button (click)="sendQuestion()">Send</button>
+      </div>
+
+      <div *ngIf="uploading" class="progress">
+        Uploading... {{ uploadProgress }}%
+      </div>
+
+      <div class="allowed">
+        Allowed: PDF · DOCX · TXT
+      </div>
+
+    </div>
+  </div>
+
+</div>

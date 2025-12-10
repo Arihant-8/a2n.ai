@@ -1,0 +1,166 @@
+/* =========================================================
+   LEFT SIDE SPACING FIX
+========================================================= */
+.card-row {
+    margin-left: -5px;
+}
+
+
+/* =========================================================
+   BACKGROUND VIDEO
+========================================================= */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.video-background video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(55%);
+}
+
+
+/* =========================================================
+   CARD GRID + CARD STYLE
+========================================================= */
+
+.agentic-ai-card {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+}
+
+.agentic-ai-card .card {
+    max-width: 330px;            /* ⭐ Smaller card */
+    border-radius: 18px; 
+    background: #ffffff;
+    border: 1px solid #dce6f7;
+    overflow: hidden;
+    transition: 0.2s ease-in-out;
+    
+    
+}
+
+.agentic-ai-card .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* =========================================================
+   IMAGE + TITLE OVERLAY
+========================================================= */
+
+.card-img-top {
+    height: 180px;
+    padding: 10px 15px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+}
+
+.card-img-top img {
+    height: 170px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Label above title */
+.tech-lable {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    padding: 4px 10px;
+    font-size: 13px;
+    border-radius: 12px;
+}
+
+/* Title */
+.card-title {
+    position: absolute;
+    bottom: 1px;
+    left: 180px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #2a3f5d;
+}
+
+
+
+
+.agentic-ai-card a,
+.agentic-ai-card a *,
+.agentic-ai-card a:hover,
+.agentic-ai-card a:hover *,
+.agentic-ai-card a:focus,
+.agentic-ai-card a:focus *,
+.agentic-ai-card a:active,
+.agentic-ai-card a:active * {
+    text-decoration: none !important;
+}
+
+
+
+
+
+/* =========================================================
+   CARD BODY
+========================================================= */
+
+.card-body {
+    padding: 18px;
+}
+
+.card-body p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px !important;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   BLUE BUTTON (Perfect Center)
+========================================================= */
+
+.agent-btn {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 12px 0;
+
+    background: linear-gradient(90deg, #4a9bff, #0066ff);
+    color: white;
+    border: none;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.agent-btn:hover {
+    opacity: 0.95;
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   CATEGORY COLOR TAGS (OPTIONAL)
+========================================================= */
+
+.agent-btn.retail,
+.agent-btn.healthcare,
+.agent-btn.hospitality {
+    background: linear-gradient(90deg, #4a9bff, #0066ff) !important;
+}

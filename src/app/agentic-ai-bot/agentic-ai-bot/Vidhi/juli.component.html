@@ -1,0 +1,149 @@
+<div class="chat-wrapper">
+    <div class="chat-container">
+        <!-- left Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+                <img src="\assets\Agentic Ai logo\Vidhi Big.png" alt="Sarena" class="avatar" />
+                <div class="profile-name-wrapper">
+    <h2 class="profile-name">Vidhi</h2>
+    <span class="online-dot"></span>
+</div>
+
+
+
+                <!-- <button mat-fab color="primary" class="mic-btn" (click)="toggleMic()"> -->
+
+                <div class="mic-btn">
+                    <!-- <img class="icon-new" src="assets/All_logo/circle-microphone 2.png" /> -->
+                    <!-- 
+                    <img class="icon-new" [ngClass]="{ 'recording-anim': isRecording2 }"
+                        src="assets/All_logo/circle-microphone 2.png" alt="Mic" (click)="toggleRecording()" /> <br> -->
+                    <div class="mic-wrapper" [ngClass]="{ 'recording-active': isRecording2 }">
+                        <img class="icon-new" src="assets/All_logo/circle-microphone 1 (1).png" alt="Mic"
+                            (click)="toggleRecording()" />
+
+                        <div class="bars" style="margin-top: 50px;">
+                            <!-- <span></span><span></span><span></span><span></span> -->
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+
+                    </div>
+
+
+                     <div class="direct-buttons">
+    <img class="direct-button" src="assets/All_logo/Today's meetings (1).png" alt="Today's meetings"
+        title="Today's meetings" (click)="autoSend('Today\'s meetings')">
+
+    <img class="direct-button" src="assets/All_logo/Top priority emails (1).png" alt="Top priority emails"
+        title="Top priority emails" (click)="autoSend('Top priority emails')">
+
+    <img class="direct-button" src="assets/All_logo/Recent IT news (1).png" alt="Recent IT news"
+        title="Recent IT news" (click)="autoSend('Recent IT news')">
+
+    <img class="direct-button" src="assets/All_logo/Employee Pular (1).png" alt="Employee Pulse"
+        title="Employee Pulse" (click)="autoSend('Employee Pulse')">
+</div>
+                </div>
+
+
+            </div>
+
+
+        </div>
+        <!-- Chat Area -->
+        <div class="chat-wrapper-right">
+            <div class="chat-card">
+
+                <div class="chat-header">
+                    <img width="50" src="\assets\Agentic Ai logo\Vidhi Small.png" />
+                    <span>Vidhi</span>
+                </div>
+
+                <!-- <div class="chat-window" #chatWindow> -->
+                <div class="chat-window chat-message" #chatWindow>
+                    <!-- <div class="message" *ngFor="let msg of messages"
+                        [ngClass]="{ bot: msg.sender === 'bot', user: msg.sender === 'user' }">
+                        <div class="msg-bubble" [ngClass]="{
+                            bot: msg.sender === 'bot',
+                            user: msg.sender === 'user'
+                        }">
+                            {{ msg.text }}
+                        </div>
+                    </div> -->
+                    <div *ngFor="let msg of messages" class="message-row">
+    
+    <!-- USER MESSAGE -->
+    <div *ngIf="msg.from === 'user'" class="user-row">
+        <div class="bubble user-bubble">
+            {{ msg.text }}
+        </div>
+    </div>
+
+    <!-- BOT MESSAGE -->
+    <div *ngIf="msg.from === 'bot'" class="bot-row">
+        
+        <!-- BOT AVATAR -->
+        <img class="bot-avatar" src="\assets\Agentic Ai logo\Vidhi Small.png" alt="Bot">
+
+        <!-- BOT TEXT (Normal + Formatted) -->
+        <div *ngIf="!msg.isFormatted" class="bubble bot-bubble">
+            {{ msg.text }}
+        </div>
+
+        <div *ngIf="msg.isFormatted"
+             class="bubble bot-bubble table-bubble"
+             [innerHTML]="msg.text">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+                    <!-- ------------------------------ -->
+
+                    <!-- ------------------------------ -->
+
+                    <div *ngIf="isTyping" class="typing-bubble">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+
+                <!-- <div class="chat-messages"#chatWindow>
+                    <div *ngFor="let msg of messages" class="message" [ngClass]="msg.from">
+                        <div class="bubble" [innerHTML]="msg.isFormatted ? formatBotReply(msg.text) : msg.text"></div>
+                    </div>
+                </div> -->
+
+                <!-- Input -->
+                <div class="chat-input">
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Ask anything..." [(ngModel)]="userInput"
+                            (keydown)="handleKeyPress($event)" />
+                        <img class="icon send-icon" src="assets/All_logo/circle-microphone 3 1.png" alt="Send"
+                            (keyup.enter)="sendMessage()" (click)="sendMessage()" title="send" />
+                        <img class="icon mic-icon" [ngStyle]="{ display: isRecording ? 'none' : 'block' }"
+                            src="assets/All_logo/circle-microphone 1 (1).png" alt="Mic" (click)="toggleRecording()"
+                            title="record message" />
+                        <!-- 
+            <button mat-icon-button color="accent" (click)="sendMessage()">
+            </button> -->
+
+                        <!-- <button mat-icon-button color="accent" (click)="toggleMic()" >
+            </button> -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

@@ -1,0 +1,128 @@
+<div class="chat-wrapper">
+    <div class="chat-container">
+
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile">
+
+                <img src="assets/Agentic Ai logo/Aanya Big.png" class="avatar" />
+
+                <!-- ⭐ Name + Dot FIXED -->
+                <div class="profile-name-wrapper">
+                    <h2 class="profile-name">Aanya</h2>
+                    <span class="online-dot"></span>
+                </div>
+
+                <div class="mic-btn">
+                    <div class="mic-wrapper" [ngClass]="{ 'recording-active': isRecording2 }">
+
+                        <img class="icon-new"
+                             src="assets/All_logo/circle-microphone 1 (1).png"
+                             alt="Mic"
+                             (click)="toggleRecording()" />
+
+                        <div class="bars" style="margin-top: 50px;">
+                            <span></span><span></span><span></span><span></span><span></span>
+                            <span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                    </div>
+
+                    <div class="direct-buttons">
+                        <img class="direct-button"
+                             src="assets/All_logo/Today's meetings (1).png"
+                             title="Today's meetings"
+                             (click)="autoSend('Today\'s meetings')">
+
+                        <img class="direct-button"
+                             src="assets/All_logo/Top priority emails (1).png"
+                             title="Top priority emails"
+                             (click)="autoSend('Top priority emails')">
+
+                        <img class="direct-button"
+                             src="assets/All_logo/Recent IT news (1).png"
+                             title="Recent IT news"
+                             (click)="autoSend('Recent IT news')">
+
+                        <img class="direct-button"
+                             src="assets/All_logo/Employee Pular (1).png"
+                             title="Employee Pulse"
+                             (click)="autoSend('Employee Pulse')">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Area -->
+        <div class="chat-wrapper-right">
+            <div class="chat-card">
+
+                <!-- Chat Header -->
+                <div class="chat-header">
+                    <img width="50" src="assets/Agentic Ai logo/Aanya Small.png" />
+
+                    <!-- ⭐ Header Name + Dot FIXED -->
+                    <div class="chat-name-wrapper">
+                        <span>Aanya</span>
+                        <!-- <span class="online-dot small"></span> -->
+                    </div>
+                </div>
+
+                <!-- Chat Window -->
+                <div class="chat-window chat-message" #chatWindow>
+
+                    <div *ngFor="let msg of messages" class="message-row">
+
+                        <!-- USER MESSAGE -->
+                        <div *ngIf="msg.from === 'user'" class="user-row">
+                            <div class="bubble user-bubble">{{ msg.text }}</div>
+                        </div>
+
+                        <!-- BOT MESSAGE -->
+                        <div *ngIf="msg.from === 'bot'" class="bot-row">
+                            
+                            <img class="bot-avatar" src="assets/Agentic Ai logo/Aanya Small.png" alt="Bot">
+
+                            <div *ngIf="!msg.isFormatted" class="bubble bot-bubble">
+                                {{ msg.text }}
+                            </div>
+
+                            <div *ngIf="msg.isFormatted"
+                                 class="bubble bot-bubble table-bubble"
+                                 [innerHTML]="msg.text">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Typing Indicator -->
+                    <div *ngIf="isTyping" class="typing-bubble">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <!-- Input Bar -->
+                <div class="chat-input">
+                    <div class="input-wrapper">
+                        <input type="text"
+                               placeholder="Ask anything..."
+                               [(ngModel)]="userInput"
+                               (keydown)="handleKeyPress($event)" />
+
+                        <img class="icon send-icon"
+                             src="assets/All_logo/circle-microphone 3 1.png"
+                             (click)="sendMessage()"
+                             title="send" />
+
+                        <img class="icon mic-icon"
+                             [ngStyle]="{ display: isRecording ? 'none' : 'block' }"
+                             src="assets/All_logo/circle-microphone 1 (1).png"
+                             alt="Mic"
+                             (click)="toggleRecording()"
+                             title="record message" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
