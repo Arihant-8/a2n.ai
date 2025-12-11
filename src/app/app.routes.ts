@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { DemoPage1Component } from './demo-page-1/demo-page-1.component';
 import { DemoPage2Component } from './demo-page-2/demo-page-2.component';
 import { ComparisonBotComponent } from './conventional-bot/comparison-bot/comparison-bot.component';
-import { ArayanComponent } from './agentic-ai-bot/agentic-ai-bot/arayan/arayan.component';
+// import { ArayanComponent } from './agentic-ai-bot/agentic-ai-bot/arayan/arayan.component';
 import {  serenaComponent } from './agentic-ai-bot/agentic-ai-bot/Aanya/serena.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AgenticAiLandingComponent } from './agentic-ai-landing/agentic-ai-landing.component';
